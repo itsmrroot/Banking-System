@@ -45,5 +45,13 @@ public class Branch {
 
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Branch{" +
+                "name='" + name + '\'' +
+                ", customers=" + customers +
+                '}';
+    }
 }
 

@@ -25,4 +25,11 @@ public void addTransaction(Double transaction) {
     this.transactions.add(transaction);
 }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", transactions=" + transactions +
+                '}';
+    }
 }
