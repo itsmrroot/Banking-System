@@ -21,6 +21,12 @@ public class Branch {
 
     public boolean newCustomer(String customerName, double initialAmount) {
 
+        if (customerName == null || customerName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Customer name cannot be empty");
+        }
+        if (initialAmount < 0) {
+            throw new IllegalArgumentException("Initial amount cannot be negative");
+        }
         if (findCustomer(customerName) == null) {
             customers.add(new Customer(customerName, initialAmount));
             return true;
@@ -55,4 +61,5 @@ public class Branch {
         }
         return null;
     }
+
 }
