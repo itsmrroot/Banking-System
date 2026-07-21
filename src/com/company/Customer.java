@@ -21,7 +21,7 @@ public ArrayList<Double> getTransactions() {
     return transactions;
 }
 
-public void addTransaction(Double transaction) {
+public void addTransaction(double transaction) {
     this.transactions.add(transaction);
 }
 
