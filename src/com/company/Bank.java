@@ -70,4 +70,11 @@ public class Bank {
         }
         return false;
     }
+    public Double getCustomerBalance(String branchName, String customerName) {
+        Branch branch = findBranch(branchName);
+        if (branch != null) {
+            return branch.getCustomerBalance(customerName);
+        }
+        return null;
+    }
 }
