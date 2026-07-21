@@ -1,4 +1,6 @@
 package com.company;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Bank {
@@ -20,7 +22,7 @@ public class Bank {
         return false;
     }
 
-    public boolean addCustomer(String branchName, String customerName, double initialAmount) {
+    public boolean addCustomer(String branchName, String customerName, BigDecimal initialAmount) {
 
         Branch branch = findBranch(branchName);
         if (branch != null) {
@@ -29,13 +31,21 @@ public class Bank {
         return false;
     }
 
-    public boolean addCustomerTransaction(String branchName, String customerName, double amount) {
+    public boolean addCustomerTransaction(String branchName, String customerName, BigDecimal amount) {
 
         Branch branch = findBranch(branchName);
         if (branch != null) {
             return branch.addCustomerTransaction(customerName, amount);
         }
         return false;
+    }
+
+    public BigDecimal getCustomerBalance(String branchName, String customerName) {
+        Branch branch = findBranch(branchName);
+        if (branch != null) {
+            return branch.getCustomerBalance(customerName);
+        }
+        return null;
     }
 
     private Branch findBranch(String branchName) {
@@ -60,7 +70,7 @@ public class Bank {
                 System.out.println("Customer: " + branchCustomer.getName() + "[" + (i+1) + "]");
                 if (showTransactions) {
                     System.out.println("Transactions");
-                    ArrayList<Double> transactions = branchCustomer.getTransactions();
+                    ArrayList<BigDecimal> transactions = branchCustomer.getTransactions();
                     for (int j = 0; j < transactions.size(); j++) {
                         System.out.println("[" + (j+1) + "] Amount " + transactions.get(j));
                     }
@@ -69,12 +79,5 @@ public class Bank {
             return true;
         }
         return false;
-    }
-    public Double getCustomerBalance(String branchName, String customerName) {
-        Branch branch = findBranch(branchName);
-        if (branch != null) {
-            return branch.getCustomerBalance(customerName);
-        }
-        return null;
     }
 }

@@ -1,34 +1,35 @@
 package com.company;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Customer {
 
     private String name;
-    private ArrayList<Double> transactions;
+    private ArrayList<BigDecimal> transactions;
 
-    public Customer(String name, double initialTransaction) {
+    public Customer(String name, BigDecimal initialTransaction) {
         this.name = name;
         this.transactions = new ArrayList<>();
         this.transactions.add(initialTransaction);
     }
 
-public String getName() {
-    return name;
-}
+    public String getName() {
+        return name;
+    }
 
-public ArrayList<Double> getTransactions() {
-    return transactions;
-}
+    public ArrayList<BigDecimal> getTransactions() {
+        return transactions;
+    }
 
-public void addTransaction(double transaction) {
-    this.transactions.add(transaction);
-}
+    public void addTransaction(BigDecimal transaction) {
+        this.transactions.add(transaction);
+    }
 
-    public double getBalance() {
-        double total = 0;
-        for (double transaction : transactions) {
-            total += transaction;
+    public BigDecimal getBalance() {
+        BigDecimal total = BigDecimal.ZERO;
+        for (BigDecimal transaction : transactions) {
+            total = total.add(transaction);
         }
         return total;
     }

@@ -1,4 +1,6 @@
 package com.company;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Branch {
@@ -19,12 +21,12 @@ public class Branch {
         return customers;
     }
 
-    public boolean newCustomer(String customerName, double initialAmount) {
+    public boolean newCustomer(String customerName, BigDecimal initialAmount) {
 
         if (customerName == null || customerName.trim().isEmpty()) {
             throw new IllegalArgumentException("Customer name cannot be empty");
         }
-        if (initialAmount < 0) {
+        if (initialAmount.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("Initial amount cannot be negative");
         }
         if (findCustomer(customerName) == null) {
@@ -34,7 +36,7 @@ public class Branch {
         return false;
     }
 
-    public boolean addCustomerTransaction(String customerName, double amount) {
+    public boolean addCustomerTransaction(String customerName, BigDecimal amount) {
 
         Customer existingCustomer = findCustomer(customerName);
         if (existingCustomer != null) {
@@ -42,6 +44,14 @@ public class Branch {
             return true;
         }
         return false;
+    }
+
+    public BigDecimal getCustomerBalance(String customerName) {
+        Customer customer = findCustomer(customerName);
+        if (customer != null) {
+            return customer.getBalance();
+        }
+        return null;
     }
 
     private Customer findCustomer(String customerName) {
@@ -54,12 +64,4 @@ public class Branch {
         }
         return null;
     }
-    public Double getCustomerBalance(String customerName) {
-        Customer customer = findCustomer(customerName);
-        if (customer != null) {
-            return customer.getBalance();
-        }
-        return null;
-    }
-
 }
