@@ -25,6 +25,14 @@ public void addTransaction(double transaction) {
     this.transactions.add(transaction);
 }
 
+    public double getBalance() {
+        double total = 0;
+        for (double transaction : transactions) {
+            total += transaction;
+        }
+        return total;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
