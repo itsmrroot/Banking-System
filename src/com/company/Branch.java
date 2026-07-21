@@ -48,4 +48,11 @@ public class Branch {
         }
         return null;
     }
+    public Double getCustomerBalance(String customerName) {
+        Customer customer = findCustomer(customerName);
+        if (customer != null) {
+            return customer.getBalance();
+        }
+        return null;
+    }
 }
