@@ -1,5 +1,5 @@
 ### IntelliJ IDEA (project files) ###
-idea/
+.idea/
 *.iml
 
 ### IntelliJ IDEA ###
