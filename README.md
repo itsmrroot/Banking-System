@@ -123,6 +123,13 @@ Note: this is a console application, so the installed app will open and close a 
 - [ ] Separate display logic (`System.out.println`) from business logic in `Bank`/`Branch`
 - [ ] Replace boolean return values with descriptive exceptions for clearer error handling throughout (currently only `newCustomer` does this)
 
+## Notes
+
+The current implementation uses `System.out.println` directly inside `Bank`/`Branch`
+rather than separating display from business logic, and only `newCustomer` uses
+exceptions for error handling — the rest still return `boolean`. Both are reasonable
+next steps if this grows further.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
