@@ -10,5 +10,7 @@ public class Main {
         bank.addCustomerTransaction("Downtown", "Alice", 500.0);
 
         bank.listCustomers("Downtown", true);
+        System.out.println("Alice's balance: " + bank.getCustomerBalance("Downtown", "Alice"));
+
     }
 }
