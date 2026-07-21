@@ -4,6 +4,10 @@
 
 ### IntelliJ IDEA ###
 target/
+*.dmg
+*.exe
+*.msi
+*.deb
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
