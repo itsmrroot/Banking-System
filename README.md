@@ -110,7 +110,7 @@ jpackage \
 - [ ] Separate display logic (`System.out.println`) from business logic in `Bank`/`Branch`
 - [ ] Add unit tests (JUnit 5)
 - [ ] Replace boolean return values with descriptive exceptions for clearer error handling
-- [ ] Rename base package from `com.company` to something project-specific
+- [ ] Rename base package from `test.java.company` to something project-specific
 
 ## License
 
